@@ -1,8 +1,9 @@
 services:
   app:
-    image: node:20.12.2
-    working_dir: /app
-    volumes:
-      - ./app:/app
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    command: make test
+    image: zarinakaitukova/devops-for-developers-project-74
     ports:
       - "8080:8080"
