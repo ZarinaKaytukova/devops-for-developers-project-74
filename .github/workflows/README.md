@@ -4,4 +4,5 @@ After completing all the steps in the project, automatic tests will become avail
 
 The hexlet-check.yml file is responsible for running these tests - do not delete this file, edit it, or rename the repository.
 
-![CI](https://github.com/ZarinaKaytukova/devops-for-developers-project-74/actions/workflows/push.yml/badge.svg)
+[![Actions Status](https://github.com/ZarinaKaytukova/devops-for-developers-project-74/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ZarinaKaytukova/devops-for-developers-project-74/actions)
+[![CI](https://github.com/ZarinaKaytukova/devops-for-developers-project-74/actions/workflows/push.yml/badge.svg)](https://github.com/ZarinaKaytukova/devops-for-developers-project-74/actions/workflows/push.yml)
