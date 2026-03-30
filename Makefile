@@ -1,7 +1,7 @@
 install:
 	docker-compose run --rm app make setup
 
-test:
+ci:
 	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
 dev:
