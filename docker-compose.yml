@@ -3,22 +3,35 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production
-    command: make test
+    platform: linux/amd64
     image: zarinakaitukova/devops-for-developers-project-74
+    command: make test
     ports:
       - "8080:8080"
     depends_on:
       db:
         condition: service_healthy
+    environment:
+      DATABASE_HOST: db
+      DATABASE_NAME: postgres
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: password
+      NODE_ENV: test
 
   db:
-    image: postgres:latest
+    image: postgres:16
     restart: unless-stopped
     environment:
-      POSTGRES_PASSWORD: password
       POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
       timeout: 5s
       retries: 5
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
